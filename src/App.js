@@ -41,10 +41,10 @@ class App extends Component {
       case 'text_tx':
         {
           if (pos == 0) {
-            Axios.get(`http://localhost:4000/hotels/send_data`)
+            Axios.get(`https://rakish-server.herokuapp.com/hotels/send_data`)
               .then(res => {
                 Axios.get(
-                  `http://localhost:4000/hotels/receive_data?SearchTxt=${text}`
+                  `https://rakish-server.herokuapp.com/hotels/receive_data?SearchTxt=${text}`
                 )
                   .then(res_2 => {
                     this.setState({
@@ -60,10 +60,12 @@ class App extends Component {
                 alert('Server error!');
               });
           } else {
-            Axios.get(`http://localhost:4000/restaurant/send_data`)
+            Axios.get(
+              `https://rakish-server.herokuapp.com/restaurant/send_data`
+            )
               .then(res => {
                 Axios.get(
-                  `http://localhost:4000/restaurant/receive_data?SearchTxt=${text}`
+                  `https://rakish-server.herokuapp.com/restaurant/receive_data?SearchTxt=${text}`
                 )
                   .then(res_2 => {
                     this.setState({
@@ -220,9 +222,7 @@ class App extends Component {
                             </div>
                           </div>
                         </div>
-                        <div class="card-footer">
-                         
-                        </div>
+                        <div class="card-footer" />
                       </div>
                     );
                   })
